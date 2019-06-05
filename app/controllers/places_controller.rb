@@ -14,7 +14,7 @@ class PlacesController < ApplicationController
 		#validate all fields are filled out, if not through error
 		if @place.invalid?
     		# flash[:error] = "Please reset your password #{view_context.link_to 'here', new_place_path}."
-    		flash[:error] = %Q[Missing fields <a href="/places/new">HERE</a>]
+    		flash[:error] = %Q[All fields are required, go back and fill out all fields! <a href="/places/new">Go Back</a>]
   		end
 		redirect_to root_path
 	end
