@@ -10,7 +10,12 @@ class PlacesController < ApplicationController
 	end
 
 	def create
-		Place.create(place_params)
+		@place = Place.create(place_params)
+		#validate all fields are filled out, if not through error
+		if @place.invalid?
+    		# flash[:error] = "Please reset your password #{view_context.link_to 'here', new_place_path}."
+    		flash[:error] = %Q[Missing fields <a href="/places/new">HERE</a>]
+  		end
 		redirect_to root_path
 	end
 
