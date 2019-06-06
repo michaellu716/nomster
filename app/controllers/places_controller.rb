@@ -12,12 +12,18 @@ class PlacesController < ApplicationController
 	end
 
 	def create
+		# @place = current_user.places.create(place_params)
+		# #validate all fields are filled out, if not through error
+		# if @place.invalid?
+  #   		flash[:error] = %Q[All fields are required, go back and fill out all fields! <a href="/places/new">Go Back</a>]
+  # 		end
+		# redirect_to root_path
 		@place = current_user.places.create(place_params)
-		#validate all fields are filled out, if not through error
-		if @place.invalid?
-    		flash[:error] = %Q[All fields are required, go back and fill out all fields! <a href="/places/new">Go Back</a>]
+  		if @place.valid?
+   		 	redirect_to root_path
+  		else
+  		    render :new, status: :unprocessable_entity
   		end
-		redirect_to root_path
 	end
 
 	def show
@@ -33,13 +39,19 @@ class PlacesController < ApplicationController
 	end
 
 	def update
-		@place = Place.find(params[:id])
-		if @place.user != current_user
-    		return render plain: 'Not Allowed', status: :forbidden
+  		@place = Place.find(params[:id])
+
+  		if @place.user != current_user
+   		    return render plain: 'Not Allowed', status: :forbidden
   		end
-		@place.update_attributes(place_params)
-		redirect_to root_path
-	end
+
+  		@place.update_attributes(place_params)
+  		if @place.valid?
+   		   redirect_to root_path
+        else
+     		render :edit, status: :unprocessable_entity
+  		end
+ 	end
 
 	def destroy
 		@place = Place.find(params[:id])
