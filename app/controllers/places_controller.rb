@@ -28,8 +28,8 @@ class PlacesController < ApplicationController
 		@place = Place.find(params[:id])
 
 		if @place.user != current_user
-			return rendor plain: 'Not Allowed', status :forbidden
-		end	
+			return rendor plain: 'Not Allowed', status:  :forbidden
+		end
 	end
 
 	def update
