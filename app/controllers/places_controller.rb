@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
-	
+
 	def index
 		# @places = Place.all
 		# @places = Place.paginate(page: params[:page])
@@ -18,6 +18,10 @@ class PlacesController < ApplicationController
     		flash[:error] = %Q[All fields are required, go back and fill out all fields! <a href="/places/new">Go Back</a>]
   		end
 		redirect_to root_path
+	end
+
+	def show
+		@place = Place.find(params[:id])
 	end
 
 	private
