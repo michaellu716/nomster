@@ -114,3 +114,9 @@ blockquote:before {
 blockquote p {
   display: inline;
 }
+blockquote footer, blockquote small, blockquote .small{
+  display: block;
+  font-size: 80%;
+  line-height: 1.428571429;
+  color: #777777;
+}
