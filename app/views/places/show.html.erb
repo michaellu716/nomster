@@ -66,6 +66,43 @@
   </div>
 </div>
 
+<div class="clear"></div>
+<!-- Photo uploads-->
+<div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="photoModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        	<span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Add a photo</h4>
+      </div>
+      <div class="clear"></div>
+      <%= simple_form_for @photo, url: place_photos_path(@place) do |a| %>
+        <div class="modal-body">
+          <%= a.input :caption %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= a.submit "Add a Photo", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+
+<!-- Upload Photo-->
+<div class="col-10 offset-1">
+	<h1 class="float-left">Photos</h1>
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#photoModal">
+	  Add a photo
+	</button>
+</div>
+<div class="clear"></div>
+
+
 <div class="col-10 offset-1">
 	<h1 class="float-left">Comments</h1>
 	<!-- Button trigger modal -->
@@ -75,21 +112,31 @@
 </div>
 <div class="clear"></div>
 
+<!-- Adds photos to page -->
 <div class="row">
-	<% @place.comments.each do |comment| %>
+	<% @place.photos.each do |photo| %>
 	  <div class="col-12 col-sm-6">
-	    <blockquote>
-	      <% if comment.humanized_rating.present? %>
-	        <b><%= comment.humanized_rating %></b> -
-	      <% end %>
-	      <%= comment.message %>
-	      <small><%= comment.user.email %></small>
-	    </blockquote>
+	    <%= photo.caption %>
 	  </div>
 	<% end %>
 </div>
 
-
-
+<!-- Adds comments to page -->
+<div class="booyah-box col-10 offset-1">
+<!-- Adds comments to page -->
+	<div class="row">
+		<% @place.comments.each do |comment| %>
+		  <div class="col-12 col-sm-6">
+		    <blockquote>
+		      <% if comment.humanized_rating.present? %>
+		        <b><%= comment.humanized_rating %></b> -
+		      <% end %>
+		      <%= comment.message %>
+		      <small><%= comment.user.email %></small>
+		    </blockquote>
+		  </div>
+		<% end %>
+	</div>
+</div>
 
 
