@@ -78,13 +78,14 @@
         <h4 class="modal-title" id="myModalLabel">Add a photo</h4>
       </div>
       <div class="clear"></div>
-      <%= simple_form_for @photo, url: place_photos_path(@place) do |a| %>
+      <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
         <div class="modal-body">
-          <%= a.input :caption %>
+          <%= f.input :caption %>
+          <%= f.input :picture %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= a.submit "Add a Photo", class: 'btn btn-primary' %>
+          <%= f.submit "Add a Photo", class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>
@@ -109,6 +110,7 @@
 		<% @place.photos.each do |photo| %>
 		  <div class="col-12 col-sm-6">
 		    <%= photo.caption %>
+		    <%= image_tag photo.picture.url %>
 		  </div>
 		<% end %>
 	</div>
@@ -140,5 +142,6 @@
 		<% end %>
 	</div>
 </div>
+
 
 
