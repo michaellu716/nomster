@@ -109,7 +109,7 @@
 	<div class="row">
 		<% @place.photos.each do |photo| %>
 		  <div class="col-12 col-sm-6">
-		  	<%= photo.picture.url %>
+		  	<%= img_url photo.picture.url %>
 		    <%= photo.caption %>
 		  </div>
 		<% end %>
