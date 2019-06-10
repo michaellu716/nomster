@@ -97,9 +97,11 @@
 <div class="col-10 offset-1">
 	<h1 class="float-left">Photos</h1>
 	<!-- Button trigger modal -->
+	<% if current_user && current_user == @place.user %>
 	<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#photoModal">
 	  Add a photo
 	</button>
+	<% end %>
 </div>
 <div class="clear"></div>
 
@@ -109,8 +111,12 @@
 	<div class="row">
 		<% @place.photos.each do |photo| %>
 		  <div class="col-12 col-sm-6">
+		  	<div class="col-lg-3 col-md-4 col-6">
+		    <%= image_tag photo.picture.url, class: 'img-fluid img-thumbnail' %>
+		    <div class="col-sm-6">
 		    <%= photo.caption %>
-		    <%= image_tag photo.picture.url %>
+			</div>
+		</div>
 		  </div>
 		<% end %>
 	</div>
@@ -119,9 +125,11 @@
 <div class="col-10 offset-1">
 	<h1 class="float-left">Comments</h1>
 	<!-- Button trigger modal -->
+	<% if current_user && current_user == @place.user %>
 	<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
 	  Add a comment
 	</button>
+	<% end %>
 </div>
 <div class="clear"></div>
 
