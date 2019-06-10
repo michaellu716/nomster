@@ -1,6 +1,7 @@
+
 <% @places.each do |place| %>
-  <div class="booyah-box col-10 offset-1">
-  	<h3><%= link_to place.name, place_path(place) %></h3>
+  <div class="card col-10 offset-1">
+  	<h3 class="placesTitle"><%= link_to place.name, place_path(place) %></h3>
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p>
 
@@ -8,9 +9,9 @@
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
     <% end %>-->
-    
  <% if place.comments.present? %>
  	<div class="col-12">
+ 		<hr class="style-two">
 	    <blockquote>
 		      <% if place.comments.last.humanized_rating.present? %>
 		        <b><%= place.comments.last.humanized_rating %></b> -
@@ -23,9 +24,14 @@
  </div>
 <% end %>
  
-
 <div class="col-md-12 d-flex justify-content-center">
 	<%= will_paginate @places, previous_label: h("<"), next_label: h(">") %>
 </div>
 
 <br/>
+
+<footer class="footer">
+      <div class="container">
+        <p class="footer-text">Created by Michael Lu - 2019 </p>
+      </div>
+</footer>

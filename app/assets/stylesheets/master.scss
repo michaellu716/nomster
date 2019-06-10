@@ -130,6 +130,70 @@ img{
 .caption{
   text-align:center;
 }
-.title{
+.headingShowTitle{
   font-weight:600;
+}
+footer{
+  background: #101010;
+  color: #fff;
+  height: 50px;
+}
+.footer-text{
+  padding-top:15px;
+  display: table;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.placesTitle{
+  font-weight: 600;
+}
+hr.style-two {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  float: left;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-left: 20px;
+  padding-top: 25px;
+  border-radius: 20px;
+  margin-top: 20px;
+  height: 450px;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #3498DB;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: #0275d8;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
 }

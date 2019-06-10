@@ -6,7 +6,7 @@
 		<% end %>
 	</div>
 
-	<h3 class="title"><%= @place.name %></h3>
+	<h3 class="headingShowTitle"><%= @place.name %></h3>
 	<i><%= @place.address %></i>
 	<br/><br/>
 	<p><%= @place.description %></p>
@@ -95,7 +95,7 @@
 
 <!-- Upload Photo-->
 <div class="col-10 offset-1">
-	<h3 class="float-left title">Photos</h3>
+	<h3 class="float-left headingShowTitle">Photos</h3>
 	<!-- Button trigger modal -->
 	<% if current_user && current_user == @place.user %>
 	<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#photoModal">
@@ -122,7 +122,7 @@
 </div>
 
 <div class="col-10 offset-1">
-	<h3 class="float-left title">Reviews</h3>
+	<h3 class="float-left headingShowTitle">Reviews</h3>
 	<!-- Button trigger modal -->
 	<% if current_user && current_user == @place.user %>
 	<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
