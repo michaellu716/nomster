@@ -1,4 +1,37 @@
-<div class="row justify-content-md-center"><h2 class="titleOfPage"><strong>Best places to eat!</strong></h2></div>
+<!--Banner-->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+       <%= image_tag '1.jpg', class: 'd-block img-fluid' %>
+        <div class="carousel-caption d-none d-md-block">
+      		<h3>Find Your Favorite Restaurant</h3>
+       </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag '2.jpg', class: 'd-block img-fluid' %>
+        <div class="carousel-caption d-none d-md-block">
+      		<h3>Add Some of Your Own Places You Love</h3>
+       </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<!-- End of Banner-->
+
+<!--Add place details onto page-->
+<div class="row justify-content-md-center"><h2 class="titleOfPage"><strong>Foodie Contributed Places</strong></h2></div>
+<hr class="grey">
 <% @places.each do |place| %>
   <div class="card col-10 offset-1">
   	<h3 class="placesTitle"><%= link_to place.name, place_path(place) %></h3>
@@ -23,15 +56,19 @@
  	<% end %>
  </div>
 <% end %>
- 
+<!--End of Add place details onto page--> 
+
+<!--Start of paging-->
 <div class="col-md-12 d-flex justify-content-center">
 	<%= will_paginate @places, previous_label: h("<"), next_label: h(">") %>
 </div>
-
+<!--End of paging-->
 <br/>
 
+<!-- Footer -->
 <footer class="footer">
       <div class="container">
         <p class="footer-text">Created by Mike Lu @ 2019 </p>
       </div>
 </footer>
+<!-- End Footer -->
