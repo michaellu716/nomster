@@ -12,9 +12,10 @@
    </div>
    <div class="clear"></div>
 </div>
-
-<div class="booyah-box col-10 offset-1">
+<br/>
 <h1 class="text-center headingShowTitle">My Comments</h1>
+<hr class="grey">
+<div class="booyah-box col-10 offset-1">
 <div class="row">
 <% @user.comments.each do |comment| %>
   <div class="col-12 col-sm-6">
@@ -30,9 +31,10 @@
 <% end %>
 </div>
 </div>
-	<div class="centerContent">
+
+<br/>
+<div class="centerContent">
 	<div class="clear"></div>
-	<br /><br />
 	<h2 class="text-center headingShowTitle">My Places</h2>
 	<hr class="grey">
 	<br />
@@ -56,4 +58,10 @@
 	 </div>
 	<% end %>
 </div>
+
+<style>
+	.booyah-box{
+		margin-top: 0px !important;
+	}
+</style>
 
