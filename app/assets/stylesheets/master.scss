@@ -84,6 +84,7 @@ html, body {
   margin: 0;
   padding: 0; 
 }
+
 #map {
   height: 300px;
 }
@@ -131,18 +132,6 @@ img{
 }
 .headingShowTitle{
   font-weight:600;
-}
-footer{
-  background: #101010;
-  color: #fff;
-  height: 50px;
-}
-.footer-text{
-  padding-top:15px;
-  display: table;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
 }
 .placesTitle{
   font-weight: 600;
@@ -238,4 +227,28 @@ button:hover, a:hover {
 .centerContent{
   margin: auto;
   width: 90%;
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -50px; 
+}
+.centerContent:after {
+  content: "";
+  display: block;
+}
+
+.site-footer, .centerContent:after {
+  height: 50px; 
+}
+
+footer{
+  background: #101010;
+  color: #fff;
+  height: 50px;
+}
+.footer-text{
+  padding-top:15px;
+  display: table;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
