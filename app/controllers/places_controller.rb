@@ -6,6 +6,7 @@ class PlacesController < ApplicationController
 		# @places = Place.paginate(page: params[:page])
 		@places = Place.order("name").page(params[:page]).per_page(10)
 		@placesLast = Photo.last
+		#place_path(place)
 	end
 
 	def new

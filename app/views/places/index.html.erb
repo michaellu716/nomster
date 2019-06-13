@@ -36,10 +36,13 @@
 <% @places.each do |place| %>
   <div class="card col-10 offset-1">
   	<h3 class="placesTitle"><%= link_to place.name, place_path(place) %></h3>
-    <i><%= place.address %></i><br /><br />
+    <i><%= place.address %></i><br />
     <p><%= place.description %></p>
     <div class="homeImage">
-      <%= image_tag @placesLast.picture.url %>
+      <% if place.photos.present? %>
+         <!-- <%= image_tag @placesLast.picture.url %>-->
+         <%= link_to image_tag(@placesLast.picture.url), place_path(place) %>
+      <% end %>
     </div>
     <!-- Displays created by user
     <% if place.user.present? %>
@@ -48,7 +51,9 @@
  <% if place.comments.present? %>
  	<div class="col-12">
  		<hr class="style-two">
+      <%= link_to ('<i class="fa fa-comments-o"></i>').html_safe, place_path(place)  %>
 	    <blockquote>
+        <i class="fa fa-star"></i>
 		      <% if place.comments.last.humanized_rating.present? %>
 		        <b><%= place.comments.last.humanized_rating %></b> -
 		      <% end %>
