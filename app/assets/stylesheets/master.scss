@@ -104,6 +104,7 @@ blockquote {
   margin: 1.5em 10px;
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
+  font-size: 14px;
 }
 
 blockquote:before {
@@ -131,10 +132,13 @@ td
 img{
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  width: 240px;
+  height: 200px;
 }
 .caption{
   text-align:center;
   border:2px; border-style:solid; border-color: #00b3ff; padding: 1em;background-color:#00b3ff;color:#fff;
+  max-width: 240px;
 }
 .headingShowTitle{
   font-weight:600;
