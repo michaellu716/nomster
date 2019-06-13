@@ -38,7 +38,7 @@
   	<h3 class="placesTitle"><%= link_to place.name, place_path(place) %></h3>
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p>
-
+    <%= image_tag @placesLast.picture.url %>
     <!-- Displays created by user
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
@@ -65,3 +65,4 @@
 </div>
 <!--End of paging-->
 <br/>
+
