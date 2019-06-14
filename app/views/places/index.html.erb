@@ -40,7 +40,7 @@
       <% end %>
   	<h3 class="placesTitlehome"><%= link_to place.name, place_path(place) %>
     </h3>
-    <i><%= place.address %></i><br />
+    <i><%= place.address %></i>
     <p><%= place.description %></p>
     <div class="homeImage">
       <% if place.photos.present? %>
@@ -68,9 +68,8 @@
  	<% end %>
  </div>
 <% end %>
-<br/>
 <!--End of Add place details onto page--> 
-<div class="clearfix"></div>
+
 <!--Start of paging-->
 <div class="col-md-12 d-flex justify-content-center">
 	<%= will_paginate @places, previous_label: h("<"), next_label: h(">") %>
