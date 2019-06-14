@@ -7,6 +7,7 @@ class PlacesController < ApplicationController
 		@places = Place.order("name").page(params[:page]).per_page(8)
 		@placesLast = Photo.last
 		#place_path(place)
+		# @photo = Photo.where(place_id: placesLast).last.picture.url
 	end
 
 	def new

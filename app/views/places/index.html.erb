@@ -44,14 +44,12 @@
     <p><%= place.description %></p>
     <div class="homeImage">
       <% if place.photos.present? %>
-         <!-- <%= image_tag @placesLast.picture.url %>-->
-         <%= link_to image_tag(@placesLast.picture.url), place_path(place) %>
+         <%# image_tag @placesLast.picture.url %>
+         <%# link_to image_tag(@photo), place_path(place) %>
+         <%# link_to image_tag(@photo), place_path(place) %>
+         <%= link_to image_tag(Photo.where(place_id: place.id).last.picture.url), place_path(place)%>
       <% end %>
     </div>
-    <!-- Displays created by user
-    <% if place.user.present? %>
-      <small><%= place.user.email %></small>
-    <% end %>-->
  <% if place.comments.present? %>
  	<div class="col-12">
  		<hr class="style-two">
