@@ -122,10 +122,10 @@
 <div class="col-10 offset-1">
 	<h3 class="float-left headingShowTitle">Reviews</h3>
 	<!-- Button trigger modal -->
-	
 	<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">
 	   <i class="fa fa-plus-circle"></i>&nbsp;Add comment
 	</button>
+
 </div>
 <div class="clear"></div>
 
@@ -141,6 +141,12 @@
 		      <% end %>
 		      <%= comment.message %>
 		      <small><%= comment.user.email %></small>
+          
+          <%= link_to '<i class="fa fa-trash"></i> Delete'.html_safe, place_comment_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger btn-sm float-right' %>
+
+          <%= link_to '<i class="fa fa-edit"></i> Edit'.html_safe, edit_place_comment_path(@place), class: 'btn btn-danger btn-sm float-right' %>
+            
+          
 		    </blockquote>
 		  </div>
 		<% end %>
