@@ -39,6 +39,7 @@
 	<br />
 	<% @user.places.each do |place| %>
 	    <div class="card col-10 offset-1">
+	     <%= link_to ('<i class="fa fa-edit"></i>').html_safe, place_path(place)  %>
 	  	<h3 class="placesTitle"><%= link_to place.name, place_path(place) %></h3>
 	    <i><%= place.address %></i><br /><br />
 	    <p><%= place.description %></p>

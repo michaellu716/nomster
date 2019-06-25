@@ -39,6 +39,7 @@ body {
   cursor: default;
   height: 50px;
   padding-top: 10px;
+  margin-top: 35px;
   a, span, em {
     padding: 0.2em 0.5em;
     display: block;
@@ -254,6 +255,8 @@ button:hover, a:hover {
   margin: auto;
   width: 85%;
 }
-.editButton{
-  
+.buttonsPlaces{
+  margin-top:-20px;
+  padding: 2px;
+  margin-right:5px;
 }
