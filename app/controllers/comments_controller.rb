@@ -20,6 +20,9 @@ class CommentsController < ApplicationController
 
  	def show
  		@comment = Comment.find(params[:id])
+    @place = Place.find(params[:place_id])
+    @comment = Comment.new
+    @user = User.find(params[:user_id])
  	end
 
  	def update
