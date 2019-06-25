@@ -1,6 +1,6 @@
 <div class="booyah-box col-10 offset-1">
   <h1>Edit Your Comment</h1>
-   <%= simple_form_for @comment, url: edit_place_comment_path do |f| %>
+   <%= simple_form_for @comment do |f| %>
 	  <%= f.input :message %>
 	  <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
 	  <%= f.submit "Update", class: 'btn btn-primary' %>

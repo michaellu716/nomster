@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
 	def create
         @place = Place.find(params[:place_id])
@@ -23,15 +23,19 @@ class CommentsController < ApplicationController
  	end
 
  	def update
- 	  @comment = Comment.find(params[:id])
-	  @comment.update_attributes(comment_params)
-	  
+      @comment = Comment.find(params[:id])
 	  if @comment.user != current_user
    		    return render plain: 'Not Allowed', status: :forbidden
-   		else
- 		     render :edit, status: :unprocessable_entity
-    	end
+  	  end
+
+  	  @comment.update_attributes(comment_params)
+  	  if @comment.valid?
+   		   redirect_to root_path
+      else
+     	   render :edit, status: :unprocessable_entity
+  	  end
  	end
+
 
 	def destroy
 		@comment = Comment.find(params[:id])
