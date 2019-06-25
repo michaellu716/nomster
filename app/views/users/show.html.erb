@@ -42,6 +42,12 @@
 	  	<h3 class="placesTitle"><%= link_to place.name, place_path(place) %></h3>
 	    <i><%= place.address %></i><br /><br />
 	    <p><%= place.description %></p>
+	     <% if place.photos.present? %>
+         <%# image_tag @placesLast.picture.url %>
+         <%# link_to image_tag(@photo), place_path(place) %>
+         <%# link_to image_tag(@photo), place_path(place) %>
+         <%= link_to image_tag(Photo.where(place_id: place.id).last.picture.url), place_path(place)%>
+      <% end %>
 	 <% if place.comments.present? %>
 	 	<div class="col-12">
 	 		<hr class="style-two">
