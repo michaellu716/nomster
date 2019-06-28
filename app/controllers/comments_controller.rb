@@ -48,7 +48,7 @@ class CommentsController < ApplicationController
     		return render plain: 'Not Allowed', status: :forbidden
   		end
 		@comment.destroy
-		redirect_to root_path
+		redirect_to place_path(@comment.place_id)
 	end
  	
 	private
