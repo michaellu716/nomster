@@ -26,14 +26,15 @@ class CommentsController < ApplicationController
  	end
 
  	def update
+
       @comment = Comment.find(params[:id])
-	  if @comment.user != current_user
+	    if @comment.user != current_user
    		    return render plain: 'Not Allowed', status: :forbidden
   	  end
 
   	  @comment.update_attributes(comment_params)
   	  if @comment.valid?
-   		   redirect_to root_path
+   		   redirect_to place_path(@comment.place_id)
       else
      	   render :edit, status: :unprocessable_entity
   	  end
